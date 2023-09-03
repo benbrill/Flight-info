@@ -20,12 +20,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout repo content
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         
       - name: find python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
-          python-version: '3.7.7' # install the python version needed
+          python-version: '3.12.0' # install the python version needed
 
       - name: install python packages
         run: |
