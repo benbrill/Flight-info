@@ -34,9 +34,9 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: execute script
         env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.KIWI_API_KEY }}
         run: |
-          python dodger_extractor.py
+          python price_extractor.py
           
       - name: commit files
         run: |
