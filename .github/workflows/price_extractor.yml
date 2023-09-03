@@ -34,7 +34,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: execute script
         env:
-          ACCESS_TOKEN: ${{ secrets.KIWI_API_KEY }}
+          KIWI_API_KEY: ${{ secrets.KIWI_API_KEY }}
         run: |
           python price_extractor.py
           
