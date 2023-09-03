@@ -22,7 +22,9 @@ def make_request(origin, destination, date_from, date_to):
         "limit": 1000
     }
 
-    r = requests.get(url=url, headers= {"accept": "application/json", "apikey": ACCESS_TOKEN}, params = data).json()
+    r = requests.get(url=url, headers= {"accept": "application/json", "apikey": ACCESS_TOKEN}, params = data)
+    print(r.status_code)
+    r = r.json()
     return r
 
 def make_df(r):
