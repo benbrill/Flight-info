@@ -64,15 +64,15 @@ def create_db(df):
         df.to_sql('flights', conn, if_exists='append', index=False)
 
 def main():
-    with open('tracked_flights.json'):
-        data = json.load('tracked_flights.json')
+    with open('../tracked_flights.json', 'r') as f:
+        flight_data = json.load(f)
     
     today = datetime.date.today()
     four_months = today + datetime.timedelta(120)
     today = today.strftime('%d/%m/%Y')
     four_months = four_months.strftime('%d/%m/%Y')
 
-    for flight in data:
+    for flight in flight_data:
         r = make_request(flight['fly_from'], flight['fly_to'], today, four_months, flight['select_airlines'])
         df = make_df(r)
         create_db(df)
