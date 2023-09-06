@@ -1,0 +1,51 @@
+[
+    {
+        "fly_from": "LAX",
+        "fly_to": "WAS",
+        "selected_cabins": "M",
+        "select_airlines": "UA,DL,AA"
+    },
+    {
+        "fly_from": "WAS",
+        "fly_to": "LAX",
+        "selected_cabins": "M",
+        "select_airlines": "UA,DL,AA"
+    },
+    {
+        "fly_from": "LAX",
+        "fly_to": "WAS",
+        "selected_cabins": "M",
+        "select_airlines": "B6,NK,WN"
+    },
+    {
+        "fly_from": "WAS",
+        "fly_to": "LAX",
+        "selected_cabins": "M",
+        "select_airlines": "B6,NK,WN"
+    },
+    {
+        "fly_from": "LAX",
+        "fly_to": "NYC",
+        "selected_cabins": "M",
+        "select_airlines": "UA,DL,AA"
+    },
+    {
+        "fly_from": "LAX",
+        "fly_to": "NYC",
+        "selected_cabins": "M",
+        "select_airlines": "B6,NK,WN"
+    },
+    {
+        "fly_from": "NYC",
+        "fly_to": "LAX",
+        "selected_cabins": "M",
+        "select_airlines": "B6,NK,WN"
+    },
+    {
+        "fly_from": "NYC",
+        "fly_to": "LAX",
+        "selected_cabins": "M",
+        "select_airlines": "UA,DL,AA"
+    }
+
+]

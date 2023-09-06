@@ -2,10 +2,12 @@ import requests
 import pandas as pd
 import os
 import sqlite3
+import datetime
+import json
 
 ACCESS_TOKEN = os.environ.get('KIWI_API_KEY')
 
-def make_request(origin, destination, date_from, date_to):
+def make_request(origin, destination, date_from, date_to, airlines:str):
     url = "https://api.tequila.kiwi.com/v2/search"
 
     data = {
@@ -15,7 +17,7 @@ def make_request(origin, destination, date_from, date_to):
         "date_to": date_to,
         "adults": 1,
         "selected_cabins": "M",
-        "select_airlines": "UA,DL,AA",
+        "select_airlines": airlines,
         "select_airlines_exclude": False,
         "curr": "USD",
         "max_stopovers": 0,
@@ -62,9 +64,19 @@ def create_db(df):
         df.to_sql('flights', conn, if_exists='append', index=False)
 
 def main():
-    r = make_request('LAX', 'WAS', '3/09/2023', '31/12/2023')
-    df = make_df(r)
-    create_db(df)
+    with open('tracked_flights.json'):
+        data = json.load('tracked_flights.json')
+    
+    today = datetime.date.today()
+    four_months = today + datetime.timedelta(120)
+    today = today.strftime('%d/%m/%Y')
+    four_months = four_months.strftime('%d/%m/%Y')
+
+    for flight in data:
+        r = make_request(flight['fly_from'], flight['fly_to'], today, four_months, flight['select_airlines'])
+        df = make_df(r)
+        create_db(df)
+
 
 if __name__ == '__main__':
     main()
