@@ -64,7 +64,7 @@ def create_db(df):
         df.to_sql('flights', conn, if_exists='append', index=False)
 
 def main():
-    with open('../tracked_flights.json', 'r') as f:
+    with open('tracked_flights.json', 'r') as f:
         flight_data = json.load(f)
     
     today = datetime.date.today()
