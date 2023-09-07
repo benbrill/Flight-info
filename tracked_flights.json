@@ -48,27 +48,27 @@
         "select_airlines": "UA,DL,AA"
     },
     {
-        fly_from: "LAX",
-        fly_to: "SFO",
-        selected_cabins: "M",
-        select_airlines: "UA,DL,AA"
+        "fly_from": "LAX",
+        "fly_to": "SFO",
+        "selected_cabins": "M",
+        "select_airlines": "UA,DL,AA"
     },
     {
-        fly_from: "SFO",
-        fly_to: "LAX",
-        selected_cabins: "M",
-        select_airlines: "UA,DL,AA"
+        "fly_from": "SFO",
+        "fly_to": "LAX",
+        "selected_cabins": "M",
+        "select_airlines": "UA,DL,AA"
     },
     {
-        fly_from: "LAX",
-        fly_to: "SFO",
-        selected_cabins: "M",
-        select_airlines: "B6,NK,WN,AS"
+        "fly_from": "LAX",
+        "fly_to": "SFO",
+        "selected_cabins": "M",
+        "select_airlines": "B6,NK,WN,AS"
     },
     {
-        fly_from: "SFO",
-        fly_to: "LAX",
-        selected_cabins: "M",
-        select_airlines: "B6,NK,WN,AS"
+        "fly_from": "SFO",
+        "fly_to": "LAX",
+        "selected_cabins": "M",
+        "select_airlines": "B6,NK,WN,AS"
     }
 ]
