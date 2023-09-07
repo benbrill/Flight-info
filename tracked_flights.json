@@ -15,13 +15,13 @@
         "fly_from": "LAX",
         "fly_to": "WAS",
         "selected_cabins": "M",
-        "select_airlines": "B6,NK,WN"
+        "select_airlines": "B6,NK,WN,AS"
     },
     {
         "fly_from": "WAS",
         "fly_to": "LAX",
         "selected_cabins": "M",
-        "select_airlines": "B6,NK,WN"
+        "select_airlines": "B6,NK,WN,AS"
     },
     {
         "fly_from": "LAX",
@@ -33,13 +33,13 @@
         "fly_from": "LAX",
         "fly_to": "NYC",
         "selected_cabins": "M",
-        "select_airlines": "B6,NK,WN"
+        "select_airlines": "B6,NK,WN,AS"
     },
     {
         "fly_from": "NYC",
         "fly_to": "LAX",
         "selected_cabins": "M",
-        "select_airlines": "B6,NK,WN"
+        "select_airlines": "B6,NK,WN,AS"
     },
     {
         "fly_from": "NYC",
@@ -63,12 +63,12 @@
         fly_from: "LAX",
         fly_to: "SFO",
         selected_cabins: "M",
-        select_airlines: "B6,NK,WN"
+        select_airlines: "B6,NK,WN,AS"
     },
     {
         fly_from: "SFO",
         fly_to: "LAX",
         selected_cabins: "M",
-        select_airlines: "B6,NK,WN"
+        select_airlines: "B6,NK,WN,AS"
     }
 ]

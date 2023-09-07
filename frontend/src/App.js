@@ -10,6 +10,7 @@ import AirlineFlexbox from './components/flightcard'
 
 function App() {
   const [data, setData] = useState({});
+  const [data2, setData2] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [parameters, setParameters] = useState({
@@ -22,16 +23,29 @@ function App() {
     if (parameters.origin && parameters.destination && parameters.date) {
       const fetchData = async () => {
         const formattedDate = parameters.date.toISOString().split('T')[0];
-        const response = await fetch(`http://localhost:5000/search/single_day?origin=${parameters.origin}&destination=${parameters.destination}&date=${formattedDate}`);
-        const data = await response.json();
-        console.log(data);
-        setData(data);
+        const endpoint1 = `http://localhost:5000/search/single_day?origin=${parameters.origin}&destination=${parameters.destination}&date=${formattedDate}`;
+        const endpoint2 = `http://localhost:5000/search?origin=${parameters.origin}&destination=${parameters.destination}&date=${formattedDate}`;
+
+        const [response1, response2] = await Promise.all([
+          fetch(endpoint1),
+          fetch(endpoint2)
+        ]);
+
+        // Parse the responses into JSON
+        const [data1, data2] = await Promise.all([
+          response1.json(),
+          response2.json()
+        ]);
+
+        console.log(data1, data2);
+        setData(data1);
+        setData2(data2);
         setLoading(false);
       };
 
       fetchData();
     }
-  }, [parameters]);
+}, [parameters]);
 
 
 
@@ -44,6 +58,7 @@ function App() {
       <div>
         <Button onClick={() => setParameters(prev => ({ ...prev, destination: 'NYC' }))} active={parameters.destination === 'NYC'}>NYC</Button>
         <Button onClick={() => setParameters(prev => ({ ...prev, destination: 'WAS' }))} active={parameters.destination === 'WAS'}>WAS</Button>
+        <Button onClick={() => setParameters(prev => ({ ...prev, destination: 'SFO' }))} active={parameters.destination === 'SFO'}>SFO</Button>
       </div>
       <div>
         <DatePicker selected={parameters.date} onChange={date => setParameters(prev => ({ ...prev, date }))} />
@@ -62,6 +77,18 @@ function App() {
       </div>
       <div>
         {loading ? <p>Loading...</p> : <AirlineFlexbox data={data[1]} />}
+      </div>
+      <div>
+        <LineChart width={1000} height={500} data={data2}>
+          <Line type="monotone" dataKey="UA" stroke="#8884d8" />
+          <Line type="monotone" dataKey="NK" stroke="#8884d8" />
+          <Line type="monotone" dataKey="AA" stroke="#8884d8" />
+          <CartesianGrid stroke="#ccc" />
+          <XAxis dataKey="departure_date" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+        </LineChart>
       </div>
     </div>
   );
